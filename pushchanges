@@ -1,0 +1,11 @@
+#!/bin/bash
+echo "stashing changes......"
+git stash
+echo "pulling remote........"
+git pull --rebase
+echo "pushing changes......"
+git push -u origin master
+echo "reapplying stash......"
+git stash apply
+echo "pulling changes to remote...."
+ssh {USERNAME}@{SERVER_URL} "cd {DIR_RELATIVE_TO_ROOT}; git pull"
